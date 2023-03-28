@@ -1,4 +1,4 @@
-package org.example;
+package org.example.y2022;
 
 public class Main {
 
