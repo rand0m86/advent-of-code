@@ -1,8 +1,8 @@
 package org.example.y2022.day1;
 
+import org.example.y2022.util.InputReadUtil;
+
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
@@ -10,7 +10,7 @@ import java.util.TreeSet;
 
 public class Elves {
     public static void main(String[] args) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("src/main/resources/org/example/y2022/day1/input-elves.txt"));
+        List<String> lines = InputReadUtil.readAllLines(1, "input-elves.txt");
         TreeSet<Elf> elves = new TreeSet<>(Comparator.reverseOrder());
 
         int calories = 0;
