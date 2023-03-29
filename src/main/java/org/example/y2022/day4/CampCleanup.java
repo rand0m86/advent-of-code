@@ -19,28 +19,16 @@ public class CampCleanup {
 
             int rangeLeft1 = Integer.parseInt(left.substring(0, indexOfDash));
             int rangeRight1 = Integer.parseInt(left.substring(indexOfDash + 1));
-            int range1 = rangeRight1 - rangeLeft1;
 
             indexOfDash = right.indexOf('-');
             int rangeLeft2 = Integer.parseInt(right.substring(0, indexOfDash));
             int rangeRight2 = Integer.parseInt(right.substring(indexOfDash + 1));
-            int range2 = rangeRight2 - rangeLeft2;
 
-            // full overlap
-            if (range1 < range2) {
-                if (rangeLeft1 >= rangeLeft2 &&
-                    rangeRight1 <= rangeRight2) {
-                    pairs++;
-                }
-            } else if (range1 > range2) {
-                if (rangeLeft2 >= rangeLeft1 &&
-                        rangeRight2 <= rangeRight1) {
-                    pairs++;
-                }
-            } else {
-                if (rangeLeft1 == rangeLeft2 && rangeRight1 == rangeRight2) {
-                    pairs++;
-                }
+            // partial overlap
+            if (rangeLeft1 <= rangeLeft2 && rangeRight1 >= rangeLeft2) {
+                pairs++;
+            } else if (rangeLeft1 >= rangeLeft2 && rangeRight2 >= rangeLeft1) {
+                pairs++;
             }
         }
 
