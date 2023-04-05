@@ -5,6 +5,7 @@ import org.example.y2022.util.InputReadUtil;
 import java.io.IOException;
 import java.util.ArrayDeque;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Deque;
 import java.util.List;
 
@@ -90,8 +91,13 @@ public class SupplyStacks {
     }
 
     private static void executeCommand(Command command, List<Deque<Character>> stacks) {
+        List<Character> cratesInLine = new ArrayList<>(command.cratesCount);
         for (int i = 0; i < command.cratesCount; i++) {
             Character crate = stacks.get(command.sourceStack).pop();
+            cratesInLine.add(crate);
+        }
+        Collections.reverse(cratesInLine);
+        for (Character crate : cratesInLine) {
             stacks.get(command.destinationStack).push(crate);
         }
     }
